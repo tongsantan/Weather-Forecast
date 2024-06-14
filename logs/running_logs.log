@@ -1,31 +1,24 @@
-[2024-06-14 13:12:57,611: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
-[2024-06-14 13:12:57,611: INFO: data_ingestion: Entered the data ingestion method or component]
-[2024-06-14 13:12:57,813: INFO: data_ingestion: Read the dataset as dataframe]
-[2024-06-14 13:12:59,132: INFO: data_ingestion: Train test split initiated]
-[2024-06-14 13:13:00,331: INFO: data_ingestion: Ingestion of the data is completed]
-[2024-06-14 13:13:00,337: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+[2024-06-14 16:06:53,460: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-06-14 16:06:53,460: INFO: data_ingestion: Entered the data ingestion method or component]
+[2024-06-14 16:06:53,664: INFO: data_ingestion: Read the dataset as dataframe]
+[2024-06-14 16:06:54,917: INFO: data_ingestion: Train test split initiated]
+[2024-06-14 16:06:56,130: INFO: data_ingestion: Ingestion of the data is completed]
+[2024-06-14 16:06:56,130: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
-[2024-06-14 13:13:00,337: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
-[2024-06-14 13:13:00,588: INFO: data_transformation: Read train and test data completed]
-[2024-06-14 13:13:00,588: INFO: data_transformation: Obtaining preprocessing object]
-[2024-06-14 13:13:00,588: INFO: data_transformation: Numerical columns: ['MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 'WindGustSpeed', 'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am', 'Temp3pm', 'RainToday']]
-[2024-06-14 13:13:00,588: INFO: data_transformation: Categorical columns: ['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm', 'season']]
-[2024-06-14 13:13:00,588: INFO: data_transformation: Applying preprocessing object on training dataframe and testing dataframe.]
-[2024-06-14 13:13:01,090: INFO: data_transformation: Saved preprocessing object.]
-[2024-06-14 13:13:01,147: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+[2024-06-14 16:06:56,130: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2024-06-14 16:06:56,372: INFO: data_transformation: Read train and test data completed]
+[2024-06-14 16:06:56,372: INFO: data_transformation: Obtaining preprocessing object]
+[2024-06-14 16:06:56,372: INFO: data_transformation: Numerical columns: ['MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 'WindGustSpeed', 'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am', 'Temp3pm', 'RainToday']]
+[2024-06-14 16:06:56,372: INFO: data_transformation: Categorical columns: ['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm', 'season']]
+[2024-06-14 16:06:56,380: INFO: data_transformation: Applying preprocessing object on training dataframe and testing dataframe.]
+[2024-06-14 16:06:56,880: INFO: data_transformation: Saved preprocessing object.]
+[2024-06-14 16:06:56,887: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
 
 x==========x]
-[2024-06-14 13:13:01,147: INFO: main: >>>>>> stage Model Training stage started <<<<<<]
-[2024-06-14 13:13:01,147: INFO: model_trainer: Split training and test input data]
-[2024-06-14 13:13:30,202: INFO: model_trainer: Best found model on both training and testing dataset]
-[2024-06-14 13:13:30,267: INFO: main: >>>>>> stage Model Training stage completed <<<<<<
+[2024-06-14 16:06:56,889: INFO: main: >>>>>> stage Model Training stage started <<<<<<]
+[2024-06-14 16:06:56,889: INFO: model_trainer: Split training and test input data]
+[2024-06-14 16:07:25,818: INFO: model_trainer: Best found model on both training and testing dataset]
+[2024-06-14 16:07:25,911: INFO: main: >>>>>> stage Model Training stage completed <<<<<<
 
 x==========x]
-[2024-06-14 13:15:23,188: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.148:5000]
-[2024-06-14 13:15:23,189: INFO: _internal: [33mPress CTRL+C to quit[0m]
-[2024-06-14 13:15:30,658: INFO: _internal: 127.0.0.1 - - [14/Jun/2024 13:15:30] "GET / HTTP/1.1" 200 -]
-[2024-06-14 13:15:31,790: INFO: _internal: 127.0.0.1 - - [14/Jun/2024 13:15:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -]
