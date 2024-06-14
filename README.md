@@ -18,19 +18,24 @@ conda create -n mlenv python=3.8 -y
 conda activate mlenv
 ```
 
-### STEP 02 - install the requirements
+### STEP 02 - create file structure using template
+```bash
+python template.py
+```
+
+### STEP 03 - install the requirements
 ```bash
 pip install -r requirements.txt
 ```
 
-### STEP 03 - Execute data ingestion, transformation and training
+### STEP 04 - Execute data ingestion, transformation and training
 
 ```bash
 # Run the following command
 python main.py
 ```
 
-### STEP 04 - Model Prediction 
+### STEP 05 - Model Prediction 
 
 ```bash
 # Finally run the following command
@@ -42,7 +47,7 @@ python app.py
 # enter the details for Model Prediction
 ```
 
-### STEP 05 - Model Deployment 
+### STEP 06 - Model Deployment 
 
 ```bash
 # Building a docker image
