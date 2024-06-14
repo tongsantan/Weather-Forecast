@@ -18,6 +18,7 @@ list_of_files = [
     "Dockerfile",
     "app.py",
     "notebook/Fruit_Quality_Classification.ipynb",
+    "notebook/processed_data",
     "templates/home.html"
 
 ]
