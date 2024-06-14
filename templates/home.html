@@ -1,0 +1,194 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Weather (Classification Problem)</h1>
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Weather Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">MinTemp</label>
+            <input class="form-control" type="number" name="MinTemp"
+                placeholder="Enter the MinTemp" min='-8.5' max='33.9' step='.1' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">MaxTemp</label>
+            <input class="form-control" type="number" name="MaxTemp"
+                placeholder="Enter the MaxTemp" min='-4.8' max='48.1' step='.1' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Rainfall</label>
+            <input class="form-control" type="number" name="Rainfall"
+                placeholder="Enter the Rainfall" min='0' max='371' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Evaporation</label>
+            <input class="form-control" type="number" name="Evaporation"
+                placeholder="Enter the Evaporation" min='0' max='145' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sunshine</label>
+            <input class="form-control" type="number" name="Sunshine"
+                placeholder="Enter the Sunshine" min='0' max='14.5' step='.1'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WindGustSpeed</label>
+            <input class="form-control" type="number" name="WindGustSpeed"
+                placeholder="Enter the WindGustSpeed" min='6' max='135' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WindSpeed9am</label>
+            <input class="form-control" type="number" name="WindSpeed9am"
+                placeholder="Enter the WindSpeed9am" min='0' max='130' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WindSpeed3pm</label>
+            <input class="form-control" type="number" name="WindSpeed3pm"
+                placeholder="Enter the WindSpeed3pm" min='0' max='87'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Humidity9am</label>
+            <input class="form-control" type="number" name="Humidity9am"
+                placeholder="Enter the Humidity9am" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Humidity3pm</label>
+            <input class="form-control" type="number" name="Humidity3pm"
+                placeholder="Enter the Humidity3pm" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Pressure9am</label>
+            <input class="form-control" type="number" name="Pressure9am"
+                placeholder="Enter the Pressure9am" min='977.1' max='1039.6' step='.1'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Pressure3pm</label>
+            <input class="form-control" type="number" name="Pressure3pm"
+                placeholder="Enter the Pressure3pm" min='977.1' max='1039.6' step='.1'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cloud9am</label>
+            <input class="form-control" type="number" name="Cloud9am"
+                placeholder="Enter the Cloud9am" min='0' max='9' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cloud3pm</label>
+            <input class="form-control" type="number" name="Cloud3pm"
+                placeholder="Enter the Cloud3pm" min='0' max='9' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Temp9am</label>
+            <input class="form-control" type="number" name="Temp9am"
+                placeholder="Enter the Temp9am" min='-7.2' max='40.2' step='.1'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Temp3pm</label>
+            <input class="form-control" type="number" name="Temp3pm"
+                placeholder="Enter the Temp3pm" min='-5.4' max='46.7' step='.1'/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">RainToday</label>
+            <input class="form-control" type="number" name="RainToday"
+                placeholder="Enter the RainToday" min='0' max='1' />
+        </div>
+
+
+
+        <div class="mb-3">
+            <label class="form-label">Location</label>
+            <select class="form-control" name="Location" placeholder="Enter the Location" required>
+                <option class="placeholder" selected disabled value="">Select the Location</option>
+                <option value="Sydney">
+                    Sydney
+                </option>
+                <option value="GoldCoast">
+                    GoldCoast
+                </option>
+                <option value="Perth">
+                    Perth
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">season</label>
+            <select class="form-control" name="season" placeholder="Enter the season" required>
+                <option class="placeholder" selected disabled value="">Select season</option>
+                <option value="winter">
+                    winter
+                </option>
+                <option value="spring">
+                    spring
+                </option>
+                <option value="summer">
+                    summer
+                </option>
+                <option value="autumn">
+                    autumn
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WindGustDir</label>
+            <select class="form-control" name="WindGustDir" placeholder="Enter the WindGustDir" required>
+                <option class="placeholder" selected disabled value="">Select the WindGustDir</option>
+                <option value="W">
+                    W
+                </option>
+                <option value="S">
+                    S
+                </option>
+                <option value="N">
+                    N
+                </option>
+                <option value="E">
+                    E
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WindDir9am</label>
+            <select class="form-control" name="WindDir9am" placeholder="Enter the WindDir9am" required>
+                <option class="placeholder" selected disabled value="">Select WindDir9am</option>
+                <option value="E">
+                    E
+                </option>
+                <option value="N">
+                    N
+                </option>
+                <option value="S">
+                    S
+                </option>
+                <option value="W">
+                    W
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WindDir3pm</label>
+            <select class="form-control" name="WindDir3pm" placeholder="Enter the WindDir3pm" required>
+                <option class="placeholder" selected disabled value="">Select WindDir3pm</option>
+                <option value="N">
+                    N
+                </option>
+                <option value="E">
+                    E
+                </option>
+                <option value="S">
+                    S
+                </option>
+                <option value="W">
+                    W
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict the weather conditions" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
+
+
