@@ -17,7 +17,8 @@ list_of_files = [
     "main.py",
     "Dockerfile",
     "app.py",
-    "notebook/Fruit_Quality_Classification.ipynb",
+    "notebook/EDA_Weather_Classification.ipynb",
+    "notebook/Modelling_Weather_Classification.ipynb",
     "templates/home.html"
 
 ]
