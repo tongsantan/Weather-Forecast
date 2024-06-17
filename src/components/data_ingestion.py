@@ -21,7 +21,43 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logger.info("Entered the data ingestion method or component")
         try:
-            df=pd.read_csv('notebook\processed_data\weather.csv')
+            weather_dataset = pd.read_csv("./notebook/raw_data/weatherAUS.csv")
+            weather_dataset = weather_dataset[weather_dataset["RainTomorrow"].notna()]
+
+            spring = [3,4,5]
+            summer = [6,7,8]
+            autumn = [9,10,11]
+            winter = [12,1,2]
+
+            # create a user-defined function, month_to_season, that takes in a list of month as a parameter and return the season
+
+            def month_to_season(month):
+                """return the season of the year"""
+                if month in spring: 
+                    return 'spring'
+                elif month in summer:
+                    return 'summer'
+                elif month in autumn:
+                    return 'autumn'
+                elif month in winter:
+                    return 'winter'
+
+            # convert the 'Date' column to a date-time datatype
+            # create a new 'month' column by extracting the month of the 'Date' column using df[].dt.month
+            # map the user-defined function, month_to_season, to the 'month' column of the dataset 
+            # and assigned it to a new 'season' column
+
+            weather_dataset['Date'] = pd.to_datetime(weather_dataset['Date'], format='%Y-%m-%d')
+            weather_dataset['month'] = weather_dataset['Date'].dt.month
+            weather_dataset['season'] = weather_dataset['month'].map(month_to_season)
+
+            weather_dataset.drop(['Date', 'month'], axis=1, inplace=True)
+            weather_dataset["RainToday"] = weather_dataset["RainToday"].map({'Yes': 1, 'No': 0})
+            weather_dataset["RainTomorrow"] = weather_dataset["RainTomorrow"].map({'Yes': 1, 'No': 0})
+            os.makedirs("./data", exist_ok=True)
+            weather_dataset.to_csv("./data/weather.csv", index = False)
+
+            df=pd.read_csv('./data/weather.csv')
             logger.info('Read the dataset as dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
