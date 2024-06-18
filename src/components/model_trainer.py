@@ -1,9 +1,12 @@
 import os
 import sys
 from dataclasses import dataclass
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.linear_model import LogisticRegression
 from xgboost import XGBClassifier
 from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 from src.exception import CustomException
 from src import logger
@@ -30,28 +33,40 @@ class ModelTrainer:
                 test_array[:,-1]
             )
             models = {
-                        "Logistic Regression": LogisticRegression(random_state=42),
+                        "k-NN": KNeighborsClassifier(),
+                        "Decision Tree": DecisionTreeClassifier(random_state=42),
+                        "BernoulliNB": BernoulliNB(),
+                        "LogisticRegression": LogisticRegression(random_state=42),
+                        "HistGradientBoostingClassifier": HistGradientBoostingClassifier(),
                         "XGBClassifier": XGBClassifier(),
-                        "HistGradientBoostingClassifier": HistGradientBoostingClassifier()
 
                     }
             
             params={
-                        "Logistic Regression":{
-                        'C': [10], 
-                        'max_iter': [100], 
-                        'solver': ['liblinear']
+                        "k-NN": {"n_neighbors": [10, 20, 30 , 40]},
+                        
+                        "Decision Tree":{
+                            'max_depth': [1, 3, 5, 7],
+                            'max_features': [1, 10, 20 , 30]
                                         },
-
-                        "XGBClassifier":{
-                        'learning_rate': [0.1], 
-                        'n_estimators': [128]
-                                        },
-
+                
+                        "BernoulliNB":{},
+                
+                        "LogisticRegression":{
+                            'solver': ['lbfgs', 'liblinear', 'newton-cholesky'],
+                            'C': [0.01, 0.1, 1, 10],
+                            'max_iter': [100, 1000, 10000]
+                                            },
+                        
                         "HistGradientBoostingClassifier":{
-                        'learning_rate': [0.1], 
-                        'max_depth': [10]
-                                }
+                        'learning_rate':[.1,.01,.05,.001],
+                        'max_depth': [6,8,10]
+                            },
+                
+                        "XGBClassifier":{
+                        'learning_rate':[.1,.01,.001],
+                        'n_estimators': [8,16,32,64,128]
+                                        }
                                             
                     }
 
