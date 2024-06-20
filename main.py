@@ -14,7 +14,8 @@ if __name__ == '__main__':
     STAGE_NAME = "Data Ingestion stage"
     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
     obj=DataIngestion()
-    train_data,test_data=obj.initiate_data_ingestion()
+    obj.data_preprocessing_feature_engineering()
+    train_data,test_data=obj.complete_data_ingestion()
     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     
     # data transformation pipeline

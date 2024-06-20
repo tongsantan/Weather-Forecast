@@ -10,6 +10,7 @@ from dataclasses import dataclass
 
 @dataclass
 class DataIngestionConfig:
+    processed_data_path: str=os.path.join('data', "processed_weather.csv")
     train_data_path: str=os.path.join('output',"train.csv")
     test_data_path: str=os.path.join('output',"test.csv")
     raw_data_path: str=os.path.join('output',"data.csv")
@@ -18,10 +19,12 @@ class DataIngestion:
     def __init__(self):
         self.ingestion_config=DataIngestionConfig()
 
-    def initiate_data_ingestion(self):
-        logger.info("Entered the data ingestion method or component")
+    def data_preprocessing_feature_engineering(self):
+        logger.info("Data preprocessing and feature engineering") 
+        
         try:
             weather_dataset = pd.read_csv("./notebook/raw_data/weatherAUS.csv")
+            
             weather_dataset = weather_dataset[weather_dataset["RainTomorrow"].notna()]
 
             spring = [3,4,5]
@@ -48,16 +51,35 @@ class DataIngestion:
             # and assigned it to a new 'season' column
 
             weather_dataset['Date'] = pd.to_datetime(weather_dataset['Date'], format='%Y-%m-%d')
+           
             weather_dataset['month'] = weather_dataset['Date'].dt.month
+            
             weather_dataset['season'] = weather_dataset['month'].map(month_to_season)
 
             weather_dataset.drop(['Date', 'month'], axis=1, inplace=True)
+            
             weather_dataset["RainToday"] = weather_dataset["RainToday"].map({'Yes': 1, 'No': 0})
+            
             weather_dataset["RainTomorrow"] = weather_dataset["RainTomorrow"].map({'Yes': 1, 'No': 0})
-            os.makedirs("./data", exist_ok=True)
-            weather_dataset.to_csv("./data/weather.csv", index = False)
+           
+            os.makedirs(os.path.dirname(self.ingestion_config.processed_data_path),exist_ok=True)
 
-            df=pd.read_csv('./data/weather.csv')
+            weather_dataset.to_csv(self.ingestion_config.processed_data_path,index=False,header=True)
+
+            return(
+                self.ingestion_config.processed_data_path
+            )
+
+        except Exception as e:
+            raise CustomException(e,sys)    
+
+    def complete_data_ingestion(self):
+        logger.info("Resume data ingestion method or component") 
+
+        try:  
+
+            df=pd.read_csv('./data/processed_weather.csv')
+           
             logger.info('Read the dataset as dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
