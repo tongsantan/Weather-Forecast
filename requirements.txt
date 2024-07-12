@@ -8,4 +8,10 @@ Flask
 gunicorn
 dill
 feature-engine
+pyYAML
+types-pyYAML
+python-box==6.0.2
+ensure==1.0.2
+joblib
+tqdm
 -e .
