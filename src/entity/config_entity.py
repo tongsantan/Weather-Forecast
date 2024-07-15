@@ -10,7 +10,6 @@ class DataIngestionConfig:
     processed_data_path: Path
     train_data_path: Path
     test_data_path: Path
-    raw_data_path: Path
 
 @dataclass(frozen=True)
 class DataTransformationConfig:

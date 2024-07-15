@@ -79,10 +79,6 @@ class DataIngestion:
            
             logger.info('Read the dataset as dataframe')
 
-            os.makedirs(os.path.dirname(self.config.train_data_path),exist_ok=True)
-
-            df.to_csv(self.config.raw_data_path,index=False,header=True)
-
             strat_shuff_split = StratifiedShuffleSplit(n_splits=1, test_size=0.3, random_state=42)
         
             X = df.drop(columns=['RainTomorrow'],axis=1)
@@ -96,6 +92,8 @@ class DataIngestion:
             test_set = df.loc[test_idx]
 
             logger.info("Train test split initiated")
+
+            os.makedirs(os.path.dirname(self.config.train_data_path),exist_ok=True)
 
             train_set.to_csv(self.config.train_data_path,index=False,header=True)
 

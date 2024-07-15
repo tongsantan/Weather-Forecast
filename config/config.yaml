@@ -6,7 +6,6 @@ data_ingestion:
   processed_data_path: data/processed_weather.csv 
   train_data_path: output/data_ingestion/train.csv
   test_data_path: output/data_ingestion/test.csv
-  raw_data_path: output/data_ingestion/data.csv
 
 data_transformation:
   root_dir: output/data_transformation
