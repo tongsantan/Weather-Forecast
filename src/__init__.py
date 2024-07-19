@@ -18,5 +18,5 @@ logging.basicConfig(
     ]
 )
 
-logger = logging.getLogger("fruitsClassifierLogger")
+logger = logging.getLogger("WeatherClassifierLogger")
 
