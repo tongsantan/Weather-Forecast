@@ -78,11 +78,11 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
         para=param[list(models.keys())[i]]
 
-        gs = GridSearchCV(model,para, n_jobs = -1, scoring = 'roc_auc')
-        gs.fit(X_train, y_train)
-
         cv = RepeatedStratifiedKFold(n_splits= 3, n_repeats=1, random_state=0)
-        scores = cross_validate(gs, X_train, y_train, scoring=['roc_auc'], cv=cv, n_jobs=-1)
+
+        gs = GridSearchCV(model,para, cv=cv, n_jobs = -1, scoring = 'roc_auc')
+
+        gs.fit(X_train, y_train)
 
         model.set_params(**gs.best_params_)
         model.fit(X_train, y_train) # Train model
