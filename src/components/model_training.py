@@ -49,12 +49,12 @@ class ModelTrainer:
             
             logger.info(f"Best found model on both training and testing dataset")
 
+            best_model = best_model.fit(X_train, y_train)
+
             save_object(
                 file_path=self.config.trained_model_file_path,
                 obj=best_model
             )
-
-            best_model = best_model.fit(X_train, y_train)
 
             predicted=best_model.predict(X_test)
 
