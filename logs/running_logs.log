@@ -273,3 +273,128 @@ f1         0.663125  0.624661        6.157644]
 [2024-07-20 10:06:41,484: INFO: main: >>>>> Model Training Stage completed <<<<<<<
 
 x==========x]
+[2025-06-20 10:55:19,987: INFO: main: >>>>> Data Ingestion Stage started <<<<<<]
+[2025-06-20 10:55:19,990: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-20 10:55:19,990: INFO: common: created directory at: output]
+[2025-06-20 10:55:19,990: INFO: common: created directory at: output/data_ingestion]
+[2025-06-20 10:55:19,991: INFO: data_ingestion: Data preprocessing and feature engineering]
+[2025-06-20 10:55:19,991: INFO: data_ingestion: Read the dataset as dataframe]
+[2025-06-20 10:55:20,928: INFO: data_ingestion: Resume data ingestion method or component]
+[2025-06-20 10:55:20,938: INFO: data_ingestion: Read the dataset as dataframe]
+[2025-06-20 10:55:21,114: INFO: data_ingestion: Train test split initiated]
+[2025-06-20 10:55:21,820: INFO: data_ingestion: Ingestion of the data is completed]
+[2025-06-20 10:55:21,820: INFO: main: >>>>> Data Ingestion Stage completed <<<<<<<
+
+x==========x]
+[2025-06-20 10:55:21,820: INFO: main: ************************]
+[2025-06-20 10:55:21,820: INFO: main: >>>>> Data Transformation Stage started <<<<<<]
+[2025-06-20 10:55:21,820: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-20 10:55:21,820: INFO: common: created directory at: output]
+[2025-06-20 10:55:21,829: INFO: common: created directory at: output/data_transformation]
+[2025-06-20 10:55:21,829: INFO: data_transformation: Numerical columns: ['MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 'WindGustSpeed', 'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am', 'Temp3pm', 'RainToday']]
+[2025-06-20 10:55:21,829: INFO: data_transformation: Categorical columns: ['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm', 'season']]
+[2025-06-20 10:55:22,013: INFO: data_transformation: Read train and test data completed]
+[2025-06-20 10:55:22,013: INFO: data_transformation: Obtaining preprocessing object]
+[2025-06-20 10:55:22,013: INFO: data_transformation: Numerical columns: ['MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 'WindGustSpeed', 'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am', 'Temp3pm', 'RainToday']]
+[2025-06-20 10:55:22,013: INFO: data_transformation: Categorical columns: ['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm', 'season']]
+[2025-06-20 10:55:22,013: INFO: data_transformation: Applying preprocessing object on training dataframe and testing dataframe.]
+[2025-06-20 10:55:22,370: INFO: data_transformation: Saved preprocessing object.]
+[2025-06-20 10:55:22,370: INFO: main: >>>>> Data Transformation Stage completed <<<<<<<
+
+x==========x]
+[2025-06-20 10:55:22,370: INFO: main: ********************************]
+[2025-06-20 10:55:22,370: INFO: main: >>>>> Model Training Stage started <<<<<<]
+[2025-06-20 10:55:22,370: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-20 10:55:22,370: INFO: common: created directory at: output]
+[2025-06-20 10:55:22,370: INFO: common: created directory at: output/model_trainer]
+[2025-06-20 10:55:22,419: INFO: model_training: Split training and test input data]
+[2025-06-20 10:56:02,815: INFO: common: k-NN]
+[2025-06-20 10:56:02,817: INFO: common: ----]
+[2025-06-20 10:56:02,817: INFO: common: Model performance]
+[2025-06-20 10:56:03,070: INFO: common:               train      test  difference_(%)
+accuracy   0.843834  0.840288        0.421993
+precision  0.786816  0.773469        1.725632
+recall     0.416151  0.406672        2.331058
+f1         0.544378  0.533068        2.121618]
+[2025-06-20 10:56:03,075: INFO: common: ========================================]
+[2025-06-20 10:56:03,075: INFO: common: 
+]
+[2025-06-20 10:56:06,221: INFO: common: Decision Tree]
+[2025-06-20 10:56:06,222: INFO: common: -------------]
+[2025-06-20 10:56:06,222: INFO: common: Model performance]
+[2025-06-20 10:56:06,461: INFO: common:               train      test  difference_(%)
+accuracy   0.845039  0.840194        0.576692
+precision  0.734865  0.720173        2.040040
+recall     0.483060  0.469623        2.861332
+f1         0.582932  0.568517        2.535587]
+[2025-06-20 10:56:06,461: INFO: common: ========================================]
+[2025-06-20 10:56:06,461: INFO: common: 
+]
+[2025-06-20 10:56:06,877: INFO: common: BernoulliNB]
+[2025-06-20 10:56:06,878: INFO: common: -----------]
+[2025-06-20 10:56:06,878: INFO: common: Model performance]
+[2025-06-20 10:56:07,125: INFO: common:               train      test  difference_(%)
+accuracy   0.789381  0.789254        0.016034
+precision  0.528008  0.527487        0.098772
+recall     0.570270  0.574924       -0.809568
+f1         0.548326  0.550185       -0.337921]
+[2025-06-20 10:56:07,131: INFO: common: ========================================]
+[2025-06-20 10:56:07,131: INFO: common: 
+]
+[2025-06-20 10:56:21,835: INFO: common: LogisticRegression]
+[2025-06-20 10:56:21,835: INFO: common: ------------------]
+[2025-06-20 10:56:21,835: INFO: common: Model performance]
+[2025-06-20 10:56:22,074: INFO: common:               train      test  difference_(%)
+accuracy   0.842397  0.844296       -0.224963
+precision  0.717179  0.723557       -0.881523
+recall     0.490365  0.494301       -0.796308
+f1         0.582471  0.587351       -0.830913]
+[2025-06-20 10:56:22,074: INFO: common: ========================================]
+[2025-06-20 10:56:22,074: INFO: common: 
+]
+[2025-06-20 10:56:43,197: INFO: common: HistGradientBoostingClassifier]
+[2025-06-20 10:56:43,197: INFO: common: ------------------------------]
+[2025-06-20 10:56:43,197: INFO: common: Model performance]
+[2025-06-20 10:56:43,464: INFO: common:               train      test  difference_(%)
+accuracy   0.865625  0.855994        1.125121
+precision  0.783077  0.753634        3.906789
+recall     0.554092  0.531319        4.286125
+f1         0.648978  0.623244        4.128937]
+[2025-06-20 10:56:43,464: INFO: common: ========================================]
+[2025-06-20 10:56:43,464: INFO: common: 
+]
+[2025-06-20 10:56:59,370: INFO: common: XGBClassifier]
+[2025-06-20 10:56:59,370: INFO: common: -------------]
+[2025-06-20 10:56:59,370: INFO: common: Model performance]
+[2025-06-20 10:56:59,625: INFO: common:               train      test  difference_(%)
+accuracy   0.871312  0.857424        1.619669
+precision  0.802534  0.762084        5.307755
+recall     0.564982  0.529227        6.755963
+f1         0.663125  0.624661        6.157644]
+[2025-06-20 10:56:59,630: INFO: common: ========================================]
+[2025-06-20 10:56:59,630: INFO: common: 
+]
+[2025-06-20 10:56:59,631: INFO: common:                        Model_Name  F1_Score  F1 Difference (%)  ...  Precision_Score  Accuracy_Score                                        Best_Params
+1                   XGBClassifier  0.624661           6.157644  ...         0.762084        0.857424        {'learning_rate': 0.1, 'n_estimators': 128}
+2  HistGradientBoostingClassifier  0.623244           4.128937  ...         0.753634        0.855994            {'learning_rate': 0.1, 'max_depth': 10}
+3              LogisticRegression  0.587351          -0.830913  ...         0.723557        0.844296  {'C': 10, 'max_iter': 100, 'solver': 'liblinear'}
+4                   Decision Tree  0.568517           2.535587  ...         0.720173        0.840194               {'max_depth': 7, 'max_features': 30}
+5                     BernoulliNB  0.550185          -0.337921  ...         0.527487        0.789254                                                 {}
+6                            k-NN  0.533068           2.121618  ...         0.773469        0.840288                                {'n_neighbors': 40}
+
+[6 rows x 7 columns]]
+[2025-06-20 10:56:59,646: INFO: model_training: Best found model on both training and testing dataset]
+[2025-06-20 10:56:59,885: INFO: model_training: best model: XGBClassifier; best F1 score: 0.6246605776351518; confusion matrix: [[31264  1831]
+ [ 4289  5274]];]
+[2025-06-20 10:56:59,886: INFO: main: >>>>> Model Training Stage completed <<<<<<<
+
+x==========x]
+[2025-06-20 11:01:09,773: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.88.5:5000]
+[2025-06-20 11:01:09,773: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2025-06-20 11:01:20,056: INFO: _internal: 127.0.0.1 - - [20/Jun/2025 11:01:20] "GET / HTTP/1.1" 200 -]
+[2025-06-20 11:01:20,077: INFO: _internal: 127.0.0.1 - - [20/Jun/2025 11:01:20] "GET /static/styles.css HTTP/1.1" 200 -]
+[2025-06-20 11:02:08,208: INFO: _internal: 127.0.0.1 - - [20/Jun/2025 11:02:08] "POST /predictdata HTTP/1.1" 200 -]
+[2025-06-20 11:02:08,221: INFO: _internal: 127.0.0.1 - - [20/Jun/2025 11:02:08] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -]

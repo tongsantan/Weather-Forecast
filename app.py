@@ -54,7 +54,12 @@ def predict_datapoint():
         print("Mid Prediction")
         results=predict_pipeline.predict(pred_df)
         print("after Prediction")
-        return render_template('home.html',results=results[0])
+        def decode(results):
+            if results[0] == 0.0:
+                return "Clear weather expected tomorrow. Perfect for outdoor activities!"
+            elif results[0] == 1.0:
+                return "High probability of rainfall tomorrow. Consider carrying an umbrella!"
+        return render_template('home.html',results=decode(results))
     
 
 if __name__=="__main__":
